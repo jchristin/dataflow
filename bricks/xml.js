@@ -1,3 +1,5 @@
+"use strict";
+
 var dataflow = require("../lib/dataflow"),
 	libxmljs = require("libxmljs");
 

@@ -5,7 +5,7 @@ A simple dataflow implementation.
 
 ## Install
 
-    npm install dataflow --save-
+    npm install dataflow --save
 
 ## License
 

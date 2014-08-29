@@ -1,5 +1,6 @@
 {
+	"curly": true,
 	"node": true,
-	"strict": true,
-	"quotmark": "double"
+	"quotmark": "double",
+	"strict": true
 }

@@ -1,4 +1,4 @@
-var dataflow = require("../../dataflow");
+var dataflow = require("../../lib/dataflow");
 require("../../bricks/time.js");
 
 describe("Brick", function () {

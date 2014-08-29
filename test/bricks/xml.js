@@ -1,4 +1,4 @@
-var dataflow = require("../../dataflow"),
+var dataflow = require("../../lib/dataflow"),
 	fs = require("fs");
 
 require("../../bricks/xml.js");

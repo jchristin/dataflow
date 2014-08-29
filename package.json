@@ -2,7 +2,7 @@
   "name": "dataflow",
   "version": "0.1.0",
   "description": "A simple dataflow implementation",
-  "main": "dataflow.js",
+  "main": "lib/dataflow.js",
   "dependencies": {
     "libxmljs": "^0.11.0",
     "request": "^2.40.0"

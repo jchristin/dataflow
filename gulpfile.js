@@ -1,8 +1,8 @@
-var gulp   = require('gulp'),
-	jshint = require('gulp-jshint');
+var gulp = require("gulp"),
+	jshint = require("gulp-jshint");
 
-gulp.task('lint', function() {
-	return gulp.src('./bricks/*.js')
+gulp.task("lint", function () {
+	return gulp.src(["./lib/*.js", "./bricks/*.js"])
 		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'));
+		.pipe(jshint.reporter("jshint-stylish"));
 });

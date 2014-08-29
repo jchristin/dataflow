@@ -2,5 +2,6 @@
 	"curly": true,
 	"node": true,
 	"quotmark": "double",
-	"strict": true
+	"strict": true,
+	"undef": true
 }

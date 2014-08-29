@@ -1,0 +1,16 @@
+{
+	"bricks": [{
+		"type": "Starter"
+	}, {
+		"type": "Adder",
+		"properties": {
+			"right_value": 77
+		}
+	}, {
+		"type": "Tester"
+	}],
+	"links": [
+		[0, "start", 1, "set_left"],
+		[1, "sum", 2, "test"]
+	]
+}

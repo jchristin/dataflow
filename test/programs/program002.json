@@ -1,0 +1,19 @@
+{
+	"bricks": [{
+		"type": "Adder"
+	}],
+	"links": [],
+	"inputs": {
+		"first": [
+			[0, "set_left"]
+		],
+		"second": [
+			[0, "set_right"]
+		]
+	},
+	"outputs": {
+		"third": [
+			[0, "sum"]
+		]
+	}
+}

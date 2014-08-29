@@ -1,0 +1,22 @@
+{
+  "name": "dataflow",
+  "version": "0.1.0",
+  "description": "A simple dataflow implementation",
+  "main": "dataflow.js",
+  "dependencies": {
+    "libxmljs": "^0.11.0",
+    "request": "^2.40.0"
+  },
+  "devDependencies": {
+    "should": "^4.0.4"
+  },
+  "scripts": {
+    "test": "mocha --recursive --require should"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julbaxter/dataflow"
+  },
+  "author": "Julien Christin <jul.christin@gmail.com>",
+  "license": "MIT"
+}

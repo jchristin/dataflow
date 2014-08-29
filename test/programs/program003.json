@@ -1,0 +1,36 @@
+{
+	"bricks": [{
+		"type": "Adder",
+		"properties": {
+			"right_value": -1
+		}
+	}, {
+		"type": "Comparer",
+		"properties": {
+			"right_value": 1
+		}
+	}, {
+		"type": "Multiplier"
+	}, {
+		"type": "Messager"
+	}],
+	"links": [
+		[0, "sum", 1, "set_left"],
+		[1, "lesser_or_equal", 3, "send"],
+		[1, "greater", 2, "set_left"],
+		[1, "greater", 0, "set_left"],
+		[2, "product", 2, "set_right"],
+		[2, "product", 3, "set_message"]
+	],
+	"inputs": {
+		"n": [
+			[0, "set_left"],
+			[2, "set_right"]
+		]
+	},
+	"outputs": {
+		"result": [
+			[3, "message"]
+		]
+	}
+}

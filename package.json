@@ -14,7 +14,7 @@
     "should": "^4.0.4"
   },
   "scripts": {
-    "test": "mocha --recursive --require should"
+    "test": "gulp lint && mocha --recursive --require should"
   },
   "repository": {
     "type": "git",

@@ -17,5 +17,7 @@ dataflow.define("XMLParser", {
 		}
 	},
 	outputs: ["value"],
-	properties: ["path"]
+	properties: {
+		path: ""
+	}
 });

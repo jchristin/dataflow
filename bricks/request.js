@@ -19,5 +19,7 @@ dataflow.define("Request", {
 		}
 	},
 	outputs: ["body"],
-	properties: ["url"]
+	properties: {
+		url: ""
+	}
 });

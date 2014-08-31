@@ -8,7 +8,7 @@ dataflow.define("Tester", {
 			dataflow.testerDelegate(value);
 		}
 	},
-	properties: {
+	props: {
 		property: "default value"
 	}
 });
@@ -27,17 +27,17 @@ describe("dataflow", function () {
 		desc.should.have.properties("Tester", "Killer");
 
 		Object.keys(desc).forEach(function (key) {
-			desc[key].should.have.properties("inputs", "outputs", "properties");
+			desc[key].should.have.properties("inputs", "outputs", "props");
 			desc[key].inputs.should.be.an.Array;
 			desc[key].outputs.should.be.an.Array;
-			desc[key].properties.should.be.an.Object;
+			desc[key].props.should.be.an.Object;
 		});
 	});
 
 	it("should create a brick from type", function () {
 		var tester = dataflow.create("Tester");
 		tester.should.be.an.Object;
-		tester.should.have.property("property", "default value");
+		tester.props.should.have.property("property", "default value");
 	});
 
 	it("should create a composite brick from program", function (done) {

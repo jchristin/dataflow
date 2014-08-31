@@ -22,13 +22,13 @@ dataflow.define("Clock", {
  */
 dataflow.define("Timer", {
 	activate: function () {
-		this.intervalObject = setInterval( this.send("tick", true), this.delay);
+		this.intervalObject = setInterval( this.send("tick", true), this.props.delay);
 	},
 	deactivate: function () {
 		clearInterval(this.intervalObject);
 	},
 	outputs: ["tick"],
-	properties: {
+	props: {
 		delay: 1000
 	}
 });

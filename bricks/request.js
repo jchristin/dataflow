@@ -10,7 +10,7 @@ dataflow.define("Request", {
 	inputs: {
 		get: function (value) {
 			request.get({
-				url: this.url
+				url: this.props.url
 			}, (function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 					this.send("body", body);
@@ -19,7 +19,7 @@ dataflow.define("Request", {
 		}
 	},
 	outputs: ["body"],
-	properties: {
+	props: {
 		url: ""
 	}
 });

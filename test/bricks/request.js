@@ -5,7 +5,7 @@ describe("Brick", function () {
 	describe("Request", function () {
 		it("should get url", function (done) {
 			var request = dataflow.create("Request");
-			request.url = "http://www.google.com";
+			request.props.url = "http://www.google.com";
 			
 			var tester = dataflow.create("Tester");
 

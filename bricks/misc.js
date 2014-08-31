@@ -32,14 +32,14 @@ dataflow.define("Logger", {
 dataflow.define("Messager", {
 	inputs: {
 		send: function (value) {
-			this.send("message", this.message);
+			this.send("message", this.props.message);
 		},
 		set_message: function (value) {
-			this.message = value;
+			this.props.message = value;
 		}
 	},
 	outputs: ["message"],
-	properties: {
+	props: {
 		message: true
 	}
 });

@@ -10,14 +10,14 @@ dataflow.define("XMLParser", {
 	inputs: {
 		parse: function (value) {
 			var xmlDoc = libxmljs.parseXml(value);
-			var xmlNode = xmlDoc.get(this.path);
+			var xmlNode = xmlDoc.get(this.props.path);
 			if (xmlNode) {
 				this.send("value", xmlNode.text());
 			}
 		}
 	},
 	outputs: ["value"],
-	properties: {
+	props: {
 		path: ""
 	}
 });

@@ -7,7 +7,7 @@ describe("Brick", function () {
 	describe("XMLParser", function () {
 		it("should parse XML", function (done) {
 			var xmlParser = dataflow.create("XMLParser");
-			xmlParser.path = "/note/to";
+			xmlParser.props.path = "/note/to";
 			var tester = dataflow.create("Tester");
 
 			dataflow.testerDelegate = function (value) {

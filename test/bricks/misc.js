@@ -30,7 +30,7 @@ describe("Brick", function () {
 			dataflow.link(messager, "message", tester, "test");
 			dataflow.activate(messager, tester);
 
-			messager.message = 45;
+			messager.props.message = 45;
 			messager.receive("send", true);
 		});
 	});

@@ -1,12 +1,12 @@
 {
 	"bricks": [{
 		"type": "Adder",
-		"properties": {
+		"props": {
 			"right_value": -1
 		}
 	}, {
 		"type": "Comparer",
-		"properties": {
+		"props": {
 			"right_value": 1
 		}
 	}, {

@@ -19,7 +19,9 @@ describe("Brick", function () {
 
 	describe("Messager", function () {
 		it("should send its value", function (done) {
-			var messager = dataflow.create("Messager");
+			var messager = dataflow.create("Messager", {
+				message: 45
+			});
 			var tester = dataflow.create("Tester");
 
 			dataflow.testerDelegate = function (value) {
@@ -30,7 +32,6 @@ describe("Brick", function () {
 			dataflow.link(messager, "message", tester, "test");
 			dataflow.activate(messager, tester);
 
-			messager.props.message = 45;
 			messager.receive("send", true);
 		});
 	});

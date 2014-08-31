@@ -6,8 +6,9 @@ require("../../bricks/xml.js");
 describe("Brick", function () {
 	describe("XMLParser", function () {
 		it("should parse XML", function (done) {
-			var xmlParser = dataflow.create("XMLParser");
-			xmlParser.props.path = "/note/to";
+			var xmlParser = dataflow.create("XMLParser", {
+				path: "/note/to"
+			});
 			var tester = dataflow.create("Tester");
 
 			dataflow.testerDelegate = function (value) {

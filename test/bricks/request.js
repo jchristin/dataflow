@@ -4,9 +4,9 @@ require("../../bricks/request.js");
 describe("Brick", function () {
 	describe("Request", function () {
 		it("should get url", function (done) {
-			var request = dataflow.create("Request");
-			request.props.url = "http://www.google.com";
-			
+			var request = dataflow.create("Request", {
+				url: "http://www.google.com"
+			});
 			var tester = dataflow.create("Tester");
 
 			dataflow.testerDelegate = function (value) {

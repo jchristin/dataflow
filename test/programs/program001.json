@@ -1,13 +1,13 @@
 {
 	"bricks": [{
-		"type": "Starter"
+		"type": "../test/starter"
 	}, {
-		"type": "Adder",
+		"type": "../test/adder",
 		"props": {
 			"right_value": 77
 		}
 	}, {
-		"type": "Tester"
+		"type": "../test/tester"
 	}],
 	"links": [
 		[0, "start", 1, "set_left"],

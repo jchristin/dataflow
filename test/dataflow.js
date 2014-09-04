@@ -1,41 +1,14 @@
-var dataflow = require("../lib/dataflow");
-require("../bricks/math.js");
-require("../bricks/misc.js");
+/* jshint expr: true */
+/* global describe, it */
 
-dataflow.define("Tester", {
-	inputs: {
-		test: function (value) {
-			dataflow.testerDelegate(value);
-		}
-	},
-	props: {
-		property: "default value"
-	}
-});
+"use strict";
 
-dataflow.define("Killer", {
-	inputs: {
-		kill: function (value) {
-			throw new Error("KILL");
-		}
-	}
-});
+var dataflow = require("../lib/dataflow"),
+	Tester = require("./tester");
 
 describe("dataflow", function () {
-	it("should get a description of all available bricks", function () {
-		var desc = dataflow.getBricks();
-		desc.should.have.properties("Tester", "Killer");
-
-		Object.keys(desc).forEach(function (key) {
-			desc[key].should.have.properties("inputs", "outputs", "props");
-			desc[key].inputs.should.be.an.Array;
-			desc[key].outputs.should.be.an.Array;
-			desc[key].props.should.be.an.Object;
-		});
-	});
-
-	it("should create a brick from type", function () {
-		var tester = dataflow.create("Tester");
+	it("should create a brick", function () {
+		var tester = new Tester();
 		tester.should.be.an.Object;
 		tester.props.should.have.property("property", "default value");
 	});
@@ -54,7 +27,7 @@ describe("dataflow", function () {
 
 	it("should create a program with inputs and output", function (done) {
 		var brick = dataflow.create(require("./programs/program002.json"));
-		var tester = dataflow.create("Tester");
+		var tester = new Tester();
 
 		dataflow.testerDelegate = function (value) {
 			value.should.be.equal(12);
@@ -70,7 +43,7 @@ describe("dataflow", function () {
 
 	it("should execute a recursive program", function (done) {
 		var brick = dataflow.create(require("./programs/program003.json"));
-		var tester = dataflow.create("Tester");
+		var tester = new Tester();
 
 		dataflow.testerDelegate = function (value) {
 			value.should.be.equal(120);
@@ -82,5 +55,4 @@ describe("dataflow", function () {
 
 		brick.receive("n", 5);
 	});
-
 });

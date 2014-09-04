@@ -1,6 +1,6 @@
 {
 	"bricks": [{
-		"type": "Adder"
+		"type": "../test/adder"
 	}],
 	"links": [],
 	"inputs": {

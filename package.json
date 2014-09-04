@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "description": "A simple dataflow implementation",
   "main": "lib/dataflow.js",
-  "dependencies": {
-    "libxmljs": "^0.11.0",
-    "request": "^2.40.0"
-  },
+ 
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-jshint": "^1.8.4",

@@ -1,18 +1,18 @@
 {
 	"bricks": [{
-		"type": "Adder",
+		"type": "../test/adder",
 		"props": {
 			"right_value": -1
 		}
 	}, {
-		"type": "Comparer",
+		"type": "../test/comparer",
 		"props": {
 			"right_value": 1
 		}
 	}, {
-		"type": "Multiplier"
+		"type": "../test/multiplier"
 	}, {
-		"type": "Messager"
+		"type": "../test/messager"
 	}],
 	"links": [
 		[0, "sum", 1, "set_left"],

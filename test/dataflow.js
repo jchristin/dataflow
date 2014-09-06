@@ -13,18 +13,6 @@ describe("dataflow", function () {
 		tester.props.should.have.property("property", "default value");
 	});
 
-	it("should create a composite brick from program", function (done) {
-		var brick = dataflow.create(require("./programs/program001.json"));
-		brick.should.be.an.Object;
-
-		dataflow.testerDelegate = function (value) {
-			value.should.be.equal(78);
-			done();
-		};
-
-		brick.activate();
-	});
-
 	it("should create a program with inputs and output", function (done) {
 		var brick = dataflow.create(require("./programs/program002.json"));
 		var tester = new Tester();
@@ -35,7 +23,6 @@ describe("dataflow", function () {
 		};
 
 		dataflow.link(brick, "third", tester, "test");
-		dataflow.activate(brick, tester);
 
 		brick.receive("second", 7);
 		brick.receive("first", 5);
@@ -51,8 +38,7 @@ describe("dataflow", function () {
 		};
 
 		dataflow.link(brick, "result", tester, "test");
-		dataflow.activate(brick, tester);
-
+	
 		brick.receive("n", 5);
 	});
 });

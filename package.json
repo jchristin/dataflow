@@ -3,7 +3,6 @@
   "version": "0.2.0",
   "description": "A simple dataflow implementation",
   "main": "lib/dataflow.js",
- 
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-jshint": "^1.8.4",

@@ -6,18 +6,18 @@
 var dataflow = require("../lib/dataflow"),
 	Tester = require("./tester");
 
-describe("dataflow", function () {
-	it("should create a brick", function () {
+describe("dataflow", function() {
+	it("should create a brick", function() {
 		var tester = new Tester();
 		tester.should.be.an.Object;
 		tester.props.should.have.property("property", "default value");
 	});
 
-	it("should create a program with inputs and output", function (done) {
+	it("should create a program with inputs and output", function(done) {
 		var brick = dataflow.create(require("./programs/program002.json"));
 		var tester = new Tester();
 
-		dataflow.testerDelegate = function (value) {
+		dataflow.testerDelegate = function(value) {
 			value.should.be.equal(12);
 			done();
 		};
@@ -28,11 +28,11 @@ describe("dataflow", function () {
 		brick.receive("first", 5);
 	});
 
-	it("should execute a recursive program", function (done) {
+	it("should execute a recursive program", function(done) {
 		var brick = dataflow.create(require("./programs/program003.json"));
 		var tester = new Tester();
 
-		dataflow.testerDelegate = function (value) {
+		dataflow.testerDelegate = function(value) {
 			value.should.be.equal(120);
 			done();
 		};
@@ -42,11 +42,11 @@ describe("dataflow", function () {
 		brick.receive("n", 5);
 	});
 
-	it("should execute a program with composite brick", function (done) {
+	it("should execute a program with composite brick", function(done) {
 		var brick = dataflow.create(require("./programs/program004.json"));
 		var tester = new Tester();
 
-		dataflow.testerDelegate = function (value) {
+		dataflow.testerDelegate = function(value) {
 			value.should.be.equal(35);
 			done();
 		};

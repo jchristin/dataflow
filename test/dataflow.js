@@ -38,7 +38,22 @@ describe("dataflow", function () {
 		};
 
 		dataflow.link(brick, "result", tester, "test");
-	
+
 		brick.receive("n", 5);
+	});
+
+	it("should execute a program with composite brick", function (done) {
+		var brick = dataflow.create(require("./programs/program004.json"));
+		var tester = new Tester();
+
+		dataflow.testerDelegate = function (value) {
+			value.should.be.equal(35);
+			done();
+		};
+
+		dataflow.link(brick, "third", tester, "test");
+
+		brick.receive("second", 7);
+		brick.receive("first", 5);
 	});
 });

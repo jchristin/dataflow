@@ -1,0 +1,47 @@
+{
+	"bricks": [{
+		"type": "../test/adder"
+	}, {
+		"type": {
+			"bricks": [{
+				"type": "../test/adder"
+			}],
+			"links": [],
+			"inputs": {
+				"first": [
+					[0, "set_left"]
+				],
+				"second": [
+					[0, "set_right"]
+				]
+			},
+			"outputs": {
+				"third": [
+					[0, "sum"]
+				]
+			},
+			"props": {
+				"right": [0, "right_value"]
+			}
+		},
+		"props": {
+			"right": 23
+		}
+	}],
+	"links": [
+		[0, "sum", 1, "first"]
+	],
+	"inputs": {
+		"first": [
+			[0, "set_left"]
+		],
+		"second": [
+			[0, "set_right"]
+		]
+	},
+	"outputs": {
+		"third": [
+			[1, "third"]
+		]
+	}
+}

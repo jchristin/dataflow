@@ -5,7 +5,7 @@ var dataflow = require("../lib/dataflow");
 module.exports = dataflow.define({
 	inputs: {
 		test: function(value) {
-			dataflow.testerDelegate(value);
+			this.props.delegate(value);
 		}
 	},
 	props: {

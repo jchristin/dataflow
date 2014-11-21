@@ -15,12 +15,12 @@ describe("dataflow", function() {
 
 	it("should create a program with inputs and output", function(done) {
 		var brick = dataflow.create(require("./programs/program002.json"));
-		var tester = new Tester();
-
-		dataflow.testerDelegate = function(value) {
-			value.should.be.equal(12);
-			done();
-		};
+		var tester = new Tester({
+			delegate: function(value) {
+				value.should.be.equal(12);
+				done();
+			}
+		});
 
 		brick.link("third").to(tester, "test");
 		brick.receive("second", 7);
@@ -29,12 +29,12 @@ describe("dataflow", function() {
 
 	it("should execute a recursive program", function(done) {
 		var brick = dataflow.create(require("./programs/program003.json"));
-		var tester = new Tester();
-
-		dataflow.testerDelegate = function(value) {
-			value.should.be.equal(120);
-			done();
-		};
+		var tester = new Tester({
+			delegate: function(value) {
+				value.should.be.equal(120);
+				done();
+			}
+		});
 
 		brick.link("result").to(tester, "test");
 		brick.receive("n", 5);
@@ -42,12 +42,12 @@ describe("dataflow", function() {
 
 	it("should execute a program with composite brick", function(done) {
 		var brick = dataflow.create(require("./programs/program004.json"));
-		var tester = new Tester();
-
-		dataflow.testerDelegate = function(value) {
-			value.should.be.equal(35);
-			done();
-		};
+		var tester = new Tester({
+			delegate: function(value) {
+				value.should.be.equal(35);
+				done();
+			}
+		});
 
 		brick.link("third").to(tester, "test");
 		brick.receive("second", 7);

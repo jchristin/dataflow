@@ -22,8 +22,7 @@ describe("dataflow", function() {
 			done();
 		};
 
-		dataflow.link(brick, "third", tester, "test");
-
+		brick.link("third").to(tester, "test");
 		brick.receive("second", 7);
 		brick.receive("first", 5);
 	});
@@ -37,8 +36,7 @@ describe("dataflow", function() {
 			done();
 		};
 
-		dataflow.link(brick, "result", tester, "test");
-
+		brick.link("result").to(tester, "test");
 		brick.receive("n", 5);
 	});
 
@@ -51,8 +49,7 @@ describe("dataflow", function() {
 			done();
 		};
 
-		dataflow.link(brick, "third", tester, "test");
-
+		brick.link("third").to(tester, "test");
 		brick.receive("second", 7);
 		brick.receive("first", 5);
 	});

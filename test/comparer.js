@@ -3,31 +3,31 @@
 var dataflow = require("../lib/dataflow");
 
 module.exports = dataflow.define({
-	inputs: {
-		set_left: function(value) {
+	process: function() {
+		if (this.inputs.compare.hasData()) {
+			var value = this.inputs.compare.popData();
+
 			if (value < this.props.right_value) {
-				this.send("lesser", value);
+				this.outputs.lesser.pushData(value);
 			}
 
 			if (value <= this.props.right_value) {
-				this.send("lesser_or_equal", value);
+				this.outputs.lesser_or_equal.pushData(value);
 			}
 
 			if (value == this.props.right_value) {
-				this.send("equal", value);
+				this.outputs.equal.pushData(value);
 			}
 
 			if (value >= this.props.right_value) {
-				this.send("greater_or_equal", value);
+				this.outputs.greater_or_equal.pushData(value);
 			}
 
 			if (value > this.props.right_value) {
-				this.send("greater", value);
+				this.outputs.greater.pushData(value);
 			}
-		},
-		set_right: function(value) {
-			this.props.right_value = value;
 		}
 	},
+	inputs: ["compare"],
 	outputs: ["lesser", "lesser_or_equal", "equal", "greater_or_equal", "greater"]
 });

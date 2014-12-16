@@ -5,10 +5,10 @@
 	"links": [],
 	"inputs": {
 		"first": [
-			[0, "set_left"]
+			[0, "left"]
 		],
 		"second": [
-			[0, "set_right"]
+			[0, "right"]
 		]
 	},
 	"outputs": {

@@ -3,14 +3,18 @@
 var dataflow = require("../lib/dataflow");
 
 module.exports = dataflow.define({
-	inputs: {
-		send: function(value) {
-			this.send("message", this.props.message);
-		},
-		set_message: function(value) {
-			this.props.message = value;
+	process: function() {
+		if (this.inputs.send.hasData()) {
+			this.inputs.send.popData();
+			this.outputs.message.pushData(this.props.message);
+			console.log("message: " + this.props.message);
+		}
+
+		if (this.inputs.set_message.hasData()) {
+			this.props.message = this.inputs.set_message.popData();
 		}
 	},
+	inputs: ["send", "set_message"],
 	outputs: ["message"],
 	props: {
 		message: true

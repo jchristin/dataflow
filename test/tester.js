@@ -3,11 +3,12 @@
 var dataflow = require("../lib/dataflow");
 
 module.exports = dataflow.define({
-	inputs: {
-		test: function(value) {
-			this.props.delegate(value);
+	process: function() {
+		if (this.inputs.test.hasData()) {
+			this.props.delegate(this.inputs.test.popData());
 		}
 	},
+	inputs: ["test"],
 	props: {
 		property: "default value"
 	}

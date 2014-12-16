@@ -3,16 +3,11 @@
 var dataflow = require("../lib/dataflow");
 
 module.exports = dataflow.define({
-	inputs: {
-		set_left: function(value) {
-			this.send("sum", value + this.props.right_value);
-		},
-		set_right: function(value) {
-			this.props.right_value = value;
+	process: function() {
+		while (this.inputs.left.hasData() && this.inputs.right.hasData()) {
+			this.outputs.sum.pushData(this.inputs.left.popData() + this.inputs.right.popData());
 		}
 	},
-	outputs: ["sum"],
-	props: {
-		right_value: 0
-	}
+	inputs: ["left", "right"],
+	outputs: ["sum"]
 });

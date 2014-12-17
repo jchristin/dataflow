@@ -29,7 +29,7 @@ describe("dataflow", function() {
 	});
 
 	it("should create a program with inputs and output", function(done) {
-		var brick = dataflow.create(require("./programs/program002.json"));
+		var brick = dataflow.create(require("./programs/adder.json"));
 		var tester = new Tester({
 			delegate: function(value) {
 				value.should.be.equal(12);
@@ -43,7 +43,7 @@ describe("dataflow", function() {
 	});
 
 	it("should execute a recursive program", function(done) {
-		var brick = dataflow.create(require("./programs/program003.json"));
+		var brick = dataflow.create(require("./programs/factorial.json"));
 		var tester = new Tester({
 			delegate: function(value) {
 				value.should.be.equal(120);
@@ -56,7 +56,7 @@ describe("dataflow", function() {
 	});
 
 	it("should execute a program with composite brick", function(done) {
-		var brick = dataflow.create(require("./programs/program004.json"));
+		var brick = dataflow.create(require("./programs/composite.json"));
 		var tester = new Tester({
 			delegate: function(value) {
 				value.should.be.equal(24);

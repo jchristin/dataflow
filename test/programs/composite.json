@@ -4,44 +4,38 @@
 	}, {
 		"type": {
 			"bricks": [{
-				"type": "../test/adder"
+				"type": "../test/incrementer"
 			}],
 			"links": [],
 			"inputs": {
 				"first": [
-					[0, "left"]
-				],
-				"second": [
-					[0, "right"]
+					[0, "input"]
 				]
 			},
 			"outputs": {
 				"third": [
-					[0, "sum"]
+					[0, "output"]
 				]
 			},
 			"props": {
-				"right": [0, "right_value"]
+				"inc": [0, "step"]
 			}
 		},
 		"props": {
-			"right": 23
+			"inc": 23
 		}
 	}],
 	"links": [
-		[0, "sum", 1, "first"],
-		[0, "sum", 1, "second"]
+		[0, "sum", 1, "first"]
 	],
 	"inputs": {
-		"first": [
-			[0, "left"]
-		],
-		"second": [
+		"in": [
+			[0, "left"],
 			[0, "right"]
 		]
 	},
 	"outputs": {
-		"third": [
+		"out": [
 			[1, "third"]
 		]
 	}

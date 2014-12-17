@@ -59,13 +59,12 @@ describe("dataflow", function() {
 		var brick = dataflow.create(require("./programs/composite.json"));
 		var tester = new Tester({
 			delegate: function(value) {
-				value.should.be.equal(24);
+				value.should.be.equal(29);
 				done();
 			}
 		});
 
-		brick.outputs.third.pipe(tester.inputs.test);
-		brick.inputs.first.write(5);
-		brick.inputs.second.write(7);
+		brick.outputs.out.pipe(tester.inputs.test);
+		brick.inputs.in.write(3);
 	});
 });

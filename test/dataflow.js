@@ -5,7 +5,7 @@
 
 var dataflow = require("../lib/index"),
 	Tester = require("./tester"),
-	Adder = require("./adder");
+	Multiplier = require("./multiplier");
 
 describe("dataflow", function() {
 	it("should create a brick", function() {
@@ -15,24 +15,24 @@ describe("dataflow", function() {
 	});
 
 	it("should connect two brick", function(done) {
-		var adder = new Adder(),
+		var multiplier = new Multiplier(),
 			tester = new Tester({
 				delegate: function(value) {
-					value.should.be.equal(11);
+					value.should.be.equal(28);
 					done();
 				}
 			});
 
-		adder.outputs.sum.pipe(tester.inputs.test);
-		adder.inputs.left.write(4);
-		adder.inputs.right.write(7);
+		multiplier.outputs.product.pipe(tester.inputs.test);
+		multiplier.inputs.left.write(4);
+		multiplier.inputs.right.write(7);
 	});
 
 	it("should create a program with inputs and output", function(done) {
-		dataflow.open("./test/programs/adder.json", function(err, brick) {
+		dataflow.open("./test/programs/multiplier.json", function(err, brick) {
 			var tester = new Tester({
 				delegate: function(value) {
-					value.should.be.equal(12);
+					value.should.be.equal(35);
 					done();
 				}
 			});
@@ -61,7 +61,7 @@ describe("dataflow", function() {
 		dataflow.open("./test/programs/composite.json", function(err, brick) {
 			var tester = new Tester({
 				delegate: function(value) {
-					value.should.be.equal(29);
+					value.should.be.equal(32);
 					done();
 				}
 			});

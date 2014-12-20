@@ -1,6 +1,6 @@
 {
 	"bricks": [{
-		"type": "../test/adder"
+		"type": "../test/multiplier"
 	}],
 	"links": [],
 	"inputs": {
@@ -13,7 +13,7 @@
 	},
 	"outputs": {
 		"third": [
-			[0, "sum"]
+			[0, "product"]
 		]
 	}
 }

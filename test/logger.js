@@ -5,12 +5,8 @@ var dataflow = require("../lib/index");
 module.exports = dataflow.define({
 	process: function() {
 		if (this.inputs.input.hasData()) {
-			this.outputs.output.pushData(this.inputs.input.popData() + this.props.step);
+			console.log(this.inputs.input.popData());
 		}
 	},
-	inputs: ["input"],
-	outputs: ["output"],
-	props: {
-		step: 1
-	}
+	inputs: ["input"]
 });

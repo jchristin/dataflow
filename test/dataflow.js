@@ -3,7 +3,7 @@
 
 "use strict";
 
-var dataflow = require("../lib/dataflow"),
+var dataflow = require("../lib/index"),
 	Tester = require("./tester"),
 	Adder = require("./adder");
 
@@ -29,42 +29,45 @@ describe("dataflow", function() {
 	});
 
 	it("should create a program with inputs and output", function(done) {
-		var brick = dataflow.create(require("./programs/adder.json"));
-		var tester = new Tester({
-			delegate: function(value) {
-				value.should.be.equal(12);
-				done();
-			}
-		});
+		dataflow.open("./test/programs/adder.json", function(err, brick) {
+			var tester = new Tester({
+				delegate: function(value) {
+					value.should.be.equal(12);
+					done();
+				}
+			});
 
-		brick.outputs.third.pipe(tester.inputs.test);
-		brick.inputs.second.write(7);
-		brick.inputs.first.write(5);
+			brick.outputs.third.pipe(tester.inputs.test);
+			brick.inputs.second.write(7);
+			brick.inputs.first.write(5);
+		});
 	});
 
 	it("should execute a recursive program", function(done) {
-		var brick = dataflow.create(require("./programs/factorial.json"));
-		var tester = new Tester({
-			delegate: function(value) {
-				value.should.be.equal(120);
-				done();
-			}
-		});
+		dataflow.open("./test/programs/factorial.json", function(err, brick) {
+			var tester = new Tester({
+				delegate: function(value) {
+					value.should.be.equal(120);
+					done();
+				}
+			});
 
-		brick.outputs.result.pipe(tester.inputs.test);
-		brick.inputs.n.write(5);
+			brick.outputs.result.pipe(tester.inputs.test);
+			brick.inputs.n.write(5);
+		});
 	});
 
 	it("should execute a program with composite brick", function(done) {
-		var brick = dataflow.create(require("./programs/composite.json"));
-		var tester = new Tester({
-			delegate: function(value) {
-				value.should.be.equal(29);
-				done();
-			}
-		});
+		dataflow.open("./test/programs/composite.json", function(err, brick) {
+			var tester = new Tester({
+				delegate: function(value) {
+					value.should.be.equal(29);
+					done();
+				}
+			});
 
-		brick.outputs.out.pipe(tester.inputs.test);
-		brick.inputs.in.write(3);
+			brick.outputs.out.pipe(tester.inputs.test);
+			brick.inputs.in.write(3);
+		});
 	});
 });

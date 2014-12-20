@@ -1,10 +1,10 @@
 "use strict";
 
-var dataflow = require("../lib/dataflow");
+var dataflow = require("../lib/index");
 
 module.exports = dataflow.define({
 	process: function() {
-		while (this.inputs.left.hasData() && this.inputs.right.hasData()) {
+		if (this.inputs.left.hasData() && this.inputs.right.hasData()) {
 			this.outputs.sum.pushData(this.inputs.left.popData() + this.inputs.right.popData());
 		}
 	},

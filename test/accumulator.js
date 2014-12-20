@@ -1,6 +1,6 @@
 "use strict";
 
-var dataflow = require("../lib/dataflow");
+var dataflow = require("../lib/index");
 
 module.exports = dataflow.define({
 	process: function() {

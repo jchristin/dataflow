@@ -1,0 +1,19 @@
+BRICKS
+inc "../test/incrementer"
+comp "../test/comparer"
+mult "../test/multiplier"
+acc  "../test/accumulator"
+
+LINKS
+inc.output | comp.compare
+comp.greater_or_equal | mult.left
+comp.greater_or_equal | inc.input
+mult.product | mult.right
+mult.product | acc.input
+this.n | inc.input
+this.n | mult.right
+acc.output | this.result
+
+PROPS
+inc step -1
+comp right_value 0

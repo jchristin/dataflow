@@ -29,5 +29,8 @@ module.exports = dataflow.define({
 		}
 	},
 	inputs: ["compare"],
-	outputs: ["lesser", "lesser_or_equal", "equal", "greater_or_equal", "greater"]
+	outputs: ["lesser", "lesser_or_equal", "equal", "greater_or_equal", "greater"],
+	props: {
+		right_value: 0
+	}
 });

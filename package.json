@@ -3,6 +3,9 @@
   "version": "0.4.0",
   "description": "A simple dataflow implementation",
   "main": "lib/index.js",
+  "bin": {
+    "flow": "./bin/dataflow.js"
+  },
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-jshint": "^1.8.4",
@@ -18,5 +21,8 @@
     "url": "https://github.com/julbaxter/dataflow"
   },
   "author": "Julien Christin <jul.christin@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "prompt": "^0.2.14"
+  }
 }

@@ -13,9 +13,9 @@ if (argv.length > 0) {
 			console.log(err);
 		} else {
 			Object.keys(brick.outputs).forEach(function(key) {
-				var inputPort = new port.InputPort();
-				inputPort.on("data", function() {
-					console.log(key.grey + " ".grey + this.popData());
+				var inputPort = new port.InputPort(function(data) {
+					console.log(key.grey + " ".grey + data);
+					this.popData();
 				});
 
 				brick.outputs[key].pipe(inputPort);

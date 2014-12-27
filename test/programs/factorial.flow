@@ -1,8 +1,8 @@
 BRICKS
-inc "../test/incrementer"
-comp "../test/comparer"
-mult "../test/multiplier"
-acc  "../test/accumulator"
+inc "../test/bricks/incrementer"
+comp "../test/bricks/comparer"
+mult "../test/bricks/multiplier"
+acc  "../test/bricks/accumulator"
 
 LINKS
 inc.output | comp.compare

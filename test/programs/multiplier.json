@@ -1,6 +1,6 @@
 {
 	"bricks": [{
-		"type": "../test/multiplier"
+		"type": "../test/bricks/multiplier"
 	}],
 	"links": [],
 	"inputs": {

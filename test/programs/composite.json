@@ -1,10 +1,10 @@
 {
 	"bricks": [{
-		"type": "../test/multiplier"
+		"type": "../test/bricks/multiplier"
 	}, {
 		"type": {
 			"bricks": [{
-				"type": "../test/incrementer"
+				"type": "../test/bricks/incrementer"
 			}],
 			"links": [],
 			"inputs": {

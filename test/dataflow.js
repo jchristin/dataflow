@@ -5,7 +5,7 @@
 
 var dataflow = require("../lib/index"),
 	port = require("../lib/port"),
-	Multiplier = require("./multiplier");
+	Multiplier = require("./bricks/multiplier");
 
 describe("dataflow", function() {
 	it("should create a brick", function() {

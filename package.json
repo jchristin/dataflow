@@ -23,6 +23,7 @@
   "author": "Julien Christin <jul.christin@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^2.4.1",
     "prompt": "^0.2.14"
   }
 }

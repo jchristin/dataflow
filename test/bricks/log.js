@@ -3,10 +3,11 @@
 var dataflow = require("../../lib/index");
 
 module.exports = dataflow.define({
+	inputs: ["input"],
 	process: function() {
-		if (this.inputs.input.hasData()) {
-			console.log(this.inputs.input.popData());
+		var inPacket = this.inputs.input.popPacket();
+		if (inPacket) {
+			console.log(inPacket.data);
 		}
-	},
-	inputs: ["input"]
+	}
 });

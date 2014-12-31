@@ -3,6 +3,7 @@
 "use strict";
 
 var prompt = require("prompt"),
+	Packet = require("../lib/packet"),
 	port = require("../lib/port"),
 	file = require("../lib/file"),
 	argv = process.argv.slice(2);
@@ -13,9 +14,9 @@ if (argv.length > 0) {
 			console.log(err);
 		} else {
 			Object.keys(brick.outputs).forEach(function(key) {
-				var inputPort = new port.InputPort(function(data) {
-					console.log(key.grey + " ".grey + data);
-					this.popData();
+				var inputPort = new port.InputPort(function(packet) {
+					console.log(key.grey + " ".grey + packet.data);
+					this.popPacket();
 				});
 
 				brick.outputs[key].pipe(inputPort);
@@ -30,7 +31,7 @@ if (argv.length > 0) {
 				} else {
 					Object.keys(result).forEach(function(element) {
 						var input = parseFloat(result[element]) || result[element];
-						brick.inputs[element].write(input);
+						brick.inputs[element].pushData(input);
 					});
 				}
 			});

@@ -1,24 +1,26 @@
-BRICKS
-inc "../test/bricks/increment"
-comp "../test/bricks/compare"
-mult "../test/bricks/multiply"
-filter "../test/bricks/filter"
-addProp "../test/bricks/add-property"
+COMPOSITE Main
+	BRICKS
+	inc "../test/bricks/increment"
+	comp "../test/bricks/compare"
+	mult "../test/bricks/multiply"
+	filter "../test/bricks/filter"
+	addProp "../test/bricks/add-property"
 
-LINKS
-this.n | inc.input
-this.n | mult.right
-inc.output | comp.left
-comp.greater | mult.left
-comp.greater | inc.input
-comp.equal | addProp.input
-addProp.output | mult.left
-mult.product | mult.right
-mult.product | filter.input
-filter.selected | this.result
+	LINKS
+	this.n | inc.input
+	this.n | mult.right
+	inc.output | comp.left
+	comp.greater | mult.left
+	comp.greater | inc.input
+	comp.equal | addProp.input
+	addProp.output | mult.left
+	mult.product | mult.right
+	mult.product | filter.input
+	filter.selected | this.result
 
-PROPS
-inc step -1
-comp right 1
-addProp key "end"
-filter key "end"
+	PROPS
+	inc.step -1
+	comp.right 1
+	addProp.key "end"
+	filter.key "end"
+END

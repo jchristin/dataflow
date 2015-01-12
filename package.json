@@ -7,14 +7,13 @@
     "flow": "./bin/dataflow.js"
   },
   "devDependencies": {
-    "gulp": "^3.8.7",
-    "gulp-jshint": "^1.8.4",
+    "jshint": "^2.5.11",
     "jshint-stylish": "^1.0.0",
     "mocha": "^2.0.1",
     "should": "^4.0.4"
   },
   "scripts": {
-    "test": "./node_modules/gulp/bin/gulp.js lint && ./node_modules/mocha/bin/mocha --recursive --require should"
+    "test": "jshint --reporter node_modules/jshint-stylish/stylish.js ./lib/*.js ./bin/*.js ./test/*.js && mocha --recursive --require should"
   },
   "repository": {
     "type": "git",

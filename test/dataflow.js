@@ -26,39 +26,36 @@ describe("dataflow", function() {
 	});
 
 	it("should create a program with inputs and output", function(done) {
-		dataflow.open("./test/programs/multiplier.json", function(err, brick) {
-			var inputPort = new port.InputPort(function(packet) {
+		var brick = dataflow.open("./test/programs/multiplier.json"),
+			inputPort = new port.InputPort(function(packet) {
 				packet.data.should.be.equal(35);
 				done();
 			});
 
-			brick.outputs.third.pipe(inputPort);
-			brick.inputs.second.pushData(7);
-			brick.inputs.first.pushData(5);
-		});
+		brick.outputs.third.pipe(inputPort);
+		brick.inputs.second.pushData(7);
+		brick.inputs.first.pushData(5);
 	});
 
 	it("should execute a recursive program", function(done) {
-		dataflow.open("./test/programs/factorial.flow", function(err, brick) {
-			var inputPort = new port.InputPort(function(packet) {
+		var brick = dataflow.open("./test/programs/factorial.flow"),
+			inputPort = new port.InputPort(function(packet) {
 				packet.data.should.be.equal(120);
 				done();
 			});
 
-			brick.outputs.result.pipe(inputPort);
-			brick.inputs.n.pushData(5);
-		});
+		brick.outputs.result.pipe(inputPort);
+		brick.inputs.n.pushData(5);
 	});
 
 	it("should execute a program with composite brick", function(done) {
-		dataflow.open("./test/programs/composite.json", function(err, brick) {
-			var inputPort = new port.InputPort(function(packet) {
+		var brick = dataflow.open("./test/programs/composite.json"),
+			inputPort = new port.InputPort(function(packet) {
 				packet.data.should.be.equal(32);
 				done();
 			});
 
-			brick.outputs.out.pipe(inputPort);
-			brick.inputs.in.pushData(3);
-		});
+		brick.outputs.out.pipe(inputPort);
+		brick.inputs.in.pushData(3);
 	});
 });

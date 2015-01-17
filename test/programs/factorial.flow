@@ -1,10 +1,10 @@
 COMPOSITE Main
 	BRICKS
-	inc "../test/bricks/increment"
-	comp "../test/bricks/compare"
-	mult "../test/bricks/multiply"
-	filter "../test/bricks/filter"
-	addProp "../test/bricks/add-property"
+	inc "../bricks/increment"
+	comp "../bricks/compare"
+	mult "../bricks/multiply"
+	filter "../bricks/filter"
+	addProp "../bricks/add-property"
 
 	LINKS
 	this.n | inc.input

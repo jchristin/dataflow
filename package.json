@@ -1,7 +1,7 @@
 {
   "name": "dataflow",
   "version": "0.5.0",
-  "description": "A simple dataflow implementation",
+  "description": "Dataflow framework for desktop and web applications",
   "main": "lib/index.js",
   "bin": {
     "flow": "./bin/dataflow.js"

@@ -12,6 +12,10 @@ Dataflow framework for desktop and web applications.
 - [dataflow-brick-standard](https://github.com/julbaxter/dataflow-brick-standard)
 - [dataflow-brick-ifc](https://github.com/julbaxter/dataflow-brick-ifc)
 
+## Examples
+
+- [dataflow-examples](https://github.com/julbaxter/dataflow-examples)
+
 ## License
 
 This project is under the [MIT](./LICENSE) license.
